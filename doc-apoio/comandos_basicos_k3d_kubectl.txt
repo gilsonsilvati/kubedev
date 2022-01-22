@@ -51,7 +51,13 @@ kubectl get pods -l [label=valor]
 kubectl get replicaset
 
 # Listar service
-kubectl get services
+kubectl get service
 
 # Listar tudo
 kubectl get all
+
+# Enviar para docker hub (remote)
+docker push [nome_image:tag]
+
+# Boas praticas: enviando a versão latest
+docker tag [nome_image:tag] [nome_image:latest]

@@ -1,0 +1,57 @@
+# Comandos k3d + kubectl
+
+# Criar cluster padão
+k3d cluster create
+
+# Criar cluster nomeando e sem loader balance
+k3d cluster create [nome_cluster] --no-lb
+
+# Criar cluster simulando ambiente real, com alta disponibilidade
+k3d cluster create [nome_cluster] --agents [quantidade] --servers [quantidade] / k3d cluster create --agents [quantidade] --servers [quantidade] -p "8080:30000@loadbalancer"
+
+# Listar nodes
+kubectl get nodes
+
+# Diagnosticar problemas no cluster
+kubectl cluster-info dump
+
+# Listar cluster
+k3d cluster list
+
+# Excluir cluster
+k3d cluster delete / k3d cluster delete [nome_cluster]
+
+# Listar recursos
+kubectl api-resources
+
+## Menos recomendado
+# Criar pod a partir de um arquivo/manifesto
+kubectl create -f [arquivo/manifesto_yaml]
+
+# Listar pods
+kubectl get pods
+
+# Descrever pod
+kubectl describe pod [nome_pod]
+
+# Apontar e monitorar
+kubectl port-forward pod/[nome_pod] [port_local:port_container]
+
+# Excluir pod
+kubectl delete pod [nome_pod] / kubectl delete -f [arquivo/manifesto_yaml]
+
+## Mais recomendado
+# Criar/Atualizar pod/replicaset/deployment a partir de um arquivo/manifesto
+kubectl apply -f [arquivo/manifesto_yaml]
+
+# Listar pods com label
+kubectl get pods -l [label=valor]
+
+# Listar replicaset
+kubectl get replicaset
+
+# Listar service
+kubectl get services
+
+# Listar tudo
+kubectl get all

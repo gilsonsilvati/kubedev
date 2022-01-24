@@ -1,0 +1,19 @@
+# Comandos básicos Terraform
+
+# Inicializar projeto
+terraform init
+
+# Criar recurso
+terraform apply / terraform apply --auto-approve
+
+# Verificar o planejamento
+terraform plan
+
+# Atualizar projeto - por ex: um provider novo
+terraform init -upgrade
+
+# Visualizar saída
+terraform output
+
+# Excluir Cluster
+terraform destroy

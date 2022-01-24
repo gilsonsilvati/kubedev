@@ -1,0 +1,7 @@
+# Comandos básicos Digital Ocean (doctl)
+
+# Login
+doctl auth init (Necessário token)
+
+# Config kubeconfig
+doctl kubernetes cluster kubeconfig save [cluster_id]

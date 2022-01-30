@@ -1,10 +1,10 @@
 # Comandos básicos Helm
 
 # Criar
-helm create [name_chart]
+helm create [CHART]
 
 # Status
-helm status
+helm status [NAME]
 
 # Criar repositório
 helm repo add
@@ -12,11 +12,24 @@ helm repo add
 # Pesquisar repo
 helm search repo
 
-# Instalar 
-helm install
+# Instalar
+# Verificar antes
+helm install [NAME] [CHART] [flags] (--debug --dry-run)
+
+# Instalar de fato
+helm install [NAME] [CHART] / helm install [NAME] [CHART] [flags] (--values) [file.yaml]
 
 # Atualizar
-helm upgrade
+helm upgrade [NAME] [CHART] / helm upgrade [NAME] [CHART] [flags] (--values) [file.yaml]
 
 # Voltar versão
-helm rollback
+helm rollback [NAME] / helm rollback [NAME] [REVISION]
+
+# Listar
+helm list
+
+# Histórico
+helm history [NAME]
+
+# Desinstalar
+helm uninstall [NAME]

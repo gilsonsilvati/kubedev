@@ -1,11 +1,11 @@
-# Service MongoDB
 apiVersion: v1
 kind: Service
 metadata:
-  name: mongodb
+  name: {{ .Release.Name }}-mongodb-service
 spec:
   selector:
-    app: mongodb
+    app: {{ .Chart.Name }}-{{ .Release.Name }}-mongodb
   ports:
   - port: 27017
-  type: ClusterIP ## Valor default, não é necessário
+    targetPort: 27017
+  type: ClusterIP ## Valor default, não é necessário (ClusterIP, NodePort and LoadBalancer)

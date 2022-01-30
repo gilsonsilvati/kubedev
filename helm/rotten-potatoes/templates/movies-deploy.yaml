@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Release.Name }}-movies-deployment
+spec:
+  replicas: {{ .Values.web.replicas }}
+  selector:
+    matchLabels:
+      app: {{ .Chart.Name }}-{{ .Release.Name }}-movies
+  template:
+    metadata:
+      labels:
+        app: {{ .Chart.Name }}-{{ .Release.Name }}-movies
+    spec:
+      containers:
+      - name: web
+        image: {{ .Values.web.image }}:{{ .Values.web.tag }}
+        ports:
+        - containerPort: 5000
+        env:
+        - name: MONGODB_DB
+          value: {{ .Values.web.mongoDataBase }}
+        - name: MONGODB_HOST
+          value: {{ .Release.Name }}-mongodb-service
+        - name: MONGODB_PORT
+          value: "27017"
+        - name: MONGODB_USERNAME
+          value: {{ .Values.mongodb.user }}
+        - name: MONGODB_PASSWORD
+          value: {{ .Values.mongodb.password }}

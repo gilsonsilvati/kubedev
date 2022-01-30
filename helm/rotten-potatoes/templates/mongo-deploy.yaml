@@ -1,16 +1,15 @@
-# Deployment MongoDB
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ .Release.Name }}-mongodb
+  name: {{ .Release.Name }}-mongodb-deployment
 spec:
   selector:
     matchLabels:
-      app: {{ .Chart.Name }}-{{ .Chart.Name }}-mongodb
+      app: {{ .Chart.Name }}-{{ .Release.Name }}-mongodb
   template:
     metadata:
       labels:
-        app: {{ .Chart.Name }}-{{ .Chart.Name }}-mongodb
+        app: {{ .Chart.Name }}-{{ .Release.Name }}-mongodb
     spec:
       containers:
       - name: mongodb

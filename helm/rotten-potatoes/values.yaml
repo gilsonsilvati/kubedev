@@ -3,3 +3,12 @@ mongodb:
   tag: 5.0.5
   user: mongouser
   password: mongopwd
+
+web:
+  replicas: 3
+  image: gilsonsilvati/rotten-potatoes
+  tag: v10
+  mongoDataBase: admin
+  service:
+    type: NodePort
+    nodePort: 30000

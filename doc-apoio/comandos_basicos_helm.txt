@@ -1,0 +1,22 @@
+# Comandos básicos Helm
+
+# Criar
+helm create [name_chart]
+
+# Status
+helm status
+
+# Criar repositório
+helm repo add
+
+# Pesquisar repo
+helm search repo
+
+# Instalar 
+helm install
+
+# Atualizar
+helm upgrade
+
+# Voltar versão
+helm rollback
